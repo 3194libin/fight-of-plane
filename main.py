@@ -47,6 +47,8 @@ def main():
     clock = pygame.time.Clock()
     #用于切换图片
     switch_image = True
+    #用于延迟
+    delay = 100
     running = True
 
     while running:
@@ -70,11 +72,19 @@ def main():
 
         screen.blit(background,(0,0))
         #绘制我的飞机
-        switch_image = not switch_image
+
         if switch_image:
             screen.blit(me.image1,me.rect)
         else:
             screen.blit(me.image2,me.rect)
+        #切换图片，60帧，一秒切换12次
+        if not (delay % 5):
+            switch_image = not switch_image
+
+        delay -=1
+        if not delay:
+            delay = 100
+            
         pygame.display.flip()
 
         clock.tick(60)
