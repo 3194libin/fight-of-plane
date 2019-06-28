@@ -1,7 +1,9 @@
 import pygame
 import sys
 import traceback
+import myplane
 from pygame.locals import *
+from random import *
 pygame.init()
 pygame.mixer.init()
 
@@ -39,7 +41,8 @@ me_down_sound.set_volume(0.2)
 
 def main():
     pygame.mixer_music.play(-1)
-
+    #生成我方飞机
+    me= myplane.MyPlane(bg_size)
     clock = pygame.time.Clock()
 
     running = True
@@ -50,8 +53,23 @@ def main():
                 pygame.quit()
                 sys.exit()
 
-        screen.blit(background,(0,0))
+        #检测用户键盘操作
+        key_pressed = pygame.event.get()
 
+        if key_pressed[K_w] or key_pressed[K_UP]:
+            me.moveUp()
+        if key_pressed[K_s] or key_pressed[K_DOWN]:
+            me.moveDown()
+        if key_pressed[K_a] or key_pressed[K_LEFT]:
+            me.moveLeft()
+        if key_pressed[K_d] or key_pressed[K_RIGHT]:
+            me.moveRight()
+
+
+        screen.blit(background,(0,0))
+        #绘制我的飞机
+
+        screen.blit(me.image,me.rect)
         pygame.display.flip()
 
         clock.tick(60)
