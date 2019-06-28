@@ -9,7 +9,7 @@ bg_size = width,height = 480,700
 screen = pygame.display.set_mode(bg_size)
 pygame.display.set_caption('期末作业————————飞机大战')
 
-background = pygame.image.load('images/background.png').convert
+background = pygame.image.load('images/background.png').convert()
 
 #载入游戏音乐
 pygame.mixer.music.load("sound/game_music.ogg")
