@@ -39,10 +39,22 @@ enemy3_down_sound.set_volume(0.5)
 me_down_sound = pygame.mixer.Sound("sound/me_down.wav")
 me_down_sound.set_volume(0.2)
 
+
 def main():
     pygame.mixer_music.play(-1)
     #生成我方飞机
     me = myplane.MyPlane(bg_size)
+    #生成敌方飞机，大。中。小共三类
+    enemies = pygame.sprite.Group()
+
+    small_enemies = pygame.sprite.Group()
+    add_small_enemies(small_enemies,enemies,15)
+
+    mid_enemies = pygame.sprite.Group()
+    add_mid_enemies(mid_enemies, enemies, 4)
+
+    big_enemies = pygame.sprite.Group()
+    add_big_enemies(big_enemies, enemies, 15)
 
     clock = pygame.time.Clock()
     #用于切换图片
