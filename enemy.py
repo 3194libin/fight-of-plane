@@ -5,7 +5,7 @@ class SmallEnemy(pygame.sprite.Sprite):
     def __init__(self,bg_size):
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = pygame.image.load("image/enemy1.png").convert_alpha()
+        self.image = pygame.image.load("images/enemy1.png").convert_alpha()
         self.rect = self.image.get_rect()
         self.width,self.height = bg_size[0],bg_size[1]
         self.speed = 2
@@ -27,7 +27,7 @@ class MidEnemy(pygame.sprite.Sprite):
     def __init__(self,bg_size):
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = pygame.image.load("image/enemy2.png").convert_alpha()
+        self.image = pygame.image.load("images/enemy2.png").convert_alpha()
         self.rect = self.image.get_rect()
         self.width,self.height = bg_size[0],bg_size[1]
         self.speed = 1
@@ -49,8 +49,8 @@ class BigEnemy(pygame.sprite.Sprite):
     def __init__(self,bg_size):
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = pygame.image.load("image/enemy3_n1.png").convert_alpha()
-        self.image = pygame.image.load("image/enemy3_n2.png").convert_alpha()
+        self.image = pygame.image.load("images/enemy3_n1.png").convert_alpha()
+        self.image = pygame.image.load("images/enemy3_n2.png").convert_alpha()
         self.rect = self.image.get_rect()
         self.width,self.height = bg_size[0],bg_size[1]
         self.speed = 1

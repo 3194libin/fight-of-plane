@@ -100,6 +100,25 @@ def main():
 
 
         screen.blit(background,(0,0))
+        #绘制敌方大型飞机
+        for each in big_enemies:
+            each.move()
+            if switch_image:
+                screen.bilt(each.image1,each.rect)
+            else:
+                screen.bilt(each.image2, each.rect)
+        # 绘制敌方中型飞机
+        for each in mid_enemies:
+            each.move()
+            screen.bilt(each.image, each.rect)
+        # 绘制敌方中型飞机
+        for each in small_enemies:
+            each.move()
+            screen.bilt(each.image, each.rect)
+        #当大型飞机出现时，播放音效
+        if each.rect.bottom > -50:
+            enemy3_fly_sound.play()
+
         #绘制我的飞机
 
         if switch_image:
