@@ -21,8 +21,8 @@ class SmallEnemy(pygame.sprite.Sprite):
 
     def reset(self):
         self.rect.left, self.rect.top = \
-            randint(0, self.width - self.rect.width), \
-            randint(-5 * self.height, 0)
+                        randint(0, self.width - self.rect.width), \
+                        randint(-5 * self.height, 0)
 class MidEnemy(pygame.sprite.Sprite):
     def __init__(self,bg_size):
         pygame.sprite.Sprite.__init__(self)
@@ -49,9 +49,9 @@ class BigEnemy(pygame.sprite.Sprite):
     def __init__(self,bg_size):
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = pygame.image.load("images/enemy3_n1.png").convert_alpha()
-        self.image = pygame.image.load("images/enemy3_n2.png").convert_alpha()
-        self.rect = self.image.get_rect()
+        self.image1 = pygame.image.load("images/enemy3_n1.png").convert_alpha()
+        self.image2 = pygame.image.load("images/enemy3_n2.png").convert_alpha()
+        self.rect = self.image1.get_rect()
         self.width,self.height = bg_size[0],bg_size[1]
         self.speed = 1
         self.rect.left,self.rect.top = \
