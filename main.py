@@ -2,6 +2,7 @@ import pygame
 import sys
 import traceback
 import myplane
+import enemy
 from pygame.locals import *
 from random import *
 pygame.init()
@@ -39,7 +40,23 @@ enemy3_down_sound.set_volume(0.5)
 me_down_sound = pygame.mixer.Sound("sound/me_down.wav")
 me_down_sound.set_volume(0.2)
 
+def add_small_enemies(group1,group2,num):
+    for i in range(num):
+        e1 = enemy.SmallEnemy(bg_size)
+        group1.add(e1)
+        group2.add(e1)
 
+def add_mid_enemies(group1,group2,num):
+    for i in range(num):
+        e2 = enemy.SmallEnemy(bg_size)
+        group1.add(e2)
+        group2.add(e2)
+
+def add_big_enemies(group1,group2,num):
+    for i in range(num):
+        e3 = enemy.SmallEnemy(bg_size)
+        group1.add(e3)
+        group2.add(e3)
 def main():
     pygame.mixer_music.play(-1)
     #生成我方飞机
@@ -54,7 +71,7 @@ def main():
     add_mid_enemies(mid_enemies, enemies, 4)
 
     big_enemies = pygame.sprite.Group()
-    add_big_enemies(big_enemies, enemies, 15)
+    add_big_enemies(big_enemies, enemies, 1)
 
     clock = pygame.time.Clock()
     #用于切换图片
